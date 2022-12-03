@@ -25,7 +25,6 @@ class Solution {
         return -1 * x;
     }
     private int handleBigNumber(int x) {
-        System.out.println("Initial x : "+x);
         if (x == -Integer.MIN_VALUE)    return 0;
         boolean mul = (x < 0) ? true : false;
         x = (x < 0) ? x * -1 : x;
@@ -36,8 +35,6 @@ class Solution {
         while(x > 0) {
             int maxR = max / divisor;
             int currR = x % 10;
-            System.out.println("maxR = " + maxR + " currR = " + currR);
-            System.out.println("res = " + res);
             if (currR > maxR) {
                 return 0;
             }
