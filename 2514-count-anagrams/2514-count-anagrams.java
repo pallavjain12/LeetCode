@@ -15,14 +15,16 @@ class Solution {
     }
     
     private static int count(String s) {
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        int[] freq = new int[26];
+        Arrays.fill(freq, 0);
         for (char c : s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+            freq[c - 'a'] += 1;
         }
         int denomi = 1;
         int numi = getFactorial(s.length());
-        for (Map.Entry<Character, Integer> en : map.entrySet()) {
-            denomi = multiply(denomi, getFactorial(en.getValue()));
+        for (int i : freq) {
+            if (i != 0)
+                denomi = multiply(denomi, getFactorial(i));
         }
         return multiply(numi, multiplyInverse(denomi));
     }
