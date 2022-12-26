@@ -17,16 +17,18 @@ class Solution {
     private static int count(String s) {
         int[] freq = new int[26];
         Arrays.fill(freq, 0);
-        for (char c : s.toCharArray()) {
-            freq[c - 'a'] += 1;
+        for (int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a'] += 1;
         }
         int denomi = 1;
         int numi = getFactorial(s.length());
         for (int i : freq) {
             if (i != 0)
-                denomi = multiply(denomi, getFactorial(i));
+                numi = multiply(numi, multiplyInverse(getFactorial(i)));
+                //denomi = multiply(denomi, getFactorial(i));
         }
-        return multiply(numi, multiplyInverse(denomi));
+        // return multiply(numi, multiplyInverse(denomi));
+        return numi;
     }
     
     private static int getFactorial(int n) {
