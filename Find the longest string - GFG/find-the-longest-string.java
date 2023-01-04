@@ -60,13 +60,12 @@ class Solution {
         String ans = "";
         for(String s : arr) {
             for (int i = 0; i < s.length(); i++) {
-                if (set.contains(s.substring(0, i + 1))) {
-                    if (i == s.length() - 1) {
-                        ans = check(s, ans);
-                    }
-                } 
-                else
+                if (!set.contains(s.substring(0, i + 1))) {
                     break;
+                } 
+                if (i == s.length() - 1) {
+                    ans = check(s, ans);
+                }
             }
         }
         return ans;
