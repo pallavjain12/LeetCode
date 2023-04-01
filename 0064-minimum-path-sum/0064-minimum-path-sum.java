@@ -22,12 +22,6 @@ class Solution {
                 min[i][j] = Math.min(min1, min2) + grid[i][j];
             }
         }
-        // for (int[] i : min) {
-        //     for (int j : i) {
-        //         System.out.print(j + " ");
-        //     }
-        //     System.out.println("");
-        // }
         return min[rows-1][columns-1];
     }
     
